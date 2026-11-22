@@ -21,4 +21,5 @@ else if(a===82){if(S>=256)return[o,3];s[S++]=i<g.length?g[i++]:-1;q++;}
 else if(a===83){if(S<1)return[o,2];return[o,s[--S]&255];}
 else return[o,5];
 n++;}}
-for(const e of D("/input",{withFileTypes:true}).filter(e=>e.isDirectory()).map(e=>e.name).sort()){const p=R("/input/"+e+"/program.bin");let g;try{g=R("/input/"+e+"/input.bin")}catch{g=Buffer.alloc(0)}const[o,c]=V(p,g);M("/output/"+e,{recursive:true});W("/output/"+e+"/stdout.bin",Buffer.from(o));W("/output/"+e+"/exit.txt",c+"\n");}
+const IN=process.env.MAKEFUN_INPUT_DIR||"/input",OUT=process.env.MAKEFUN_OUTPUT_DIR||"/output";
+for(const e of D(IN,{withFileTypes:true}).filter(e=>e.isDirectory()).map(e=>e.name).sort()){const p=R(IN+"/"+e+"/program.bin");let g;try{g=R(IN+"/"+e+"/input.bin")}catch{g=Buffer.alloc(0)}const[o,c]=V(p,g);M(OUT+"/"+e,{recursive:true});W(OUT+"/"+e+"/stdout.bin",Buffer.from(o));W(OUT+"/"+e+"/exit.txt",c+"\n");}
